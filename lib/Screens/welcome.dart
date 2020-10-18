@@ -1,34 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:orbit/CustomWidgets/FormButtons.dart';
 
 class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    // Container c = Container(
-    //   height: size.height,
-    //   width: double.infinity,
-    //   child: Stac,
-    // )
-
     SafeArea s = SafeArea(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(
-              "assets/icons/logo.jpg"
-          ),
-          FlatButton(
-              onPressed: (){
-                return AlertDialog()
-              }, child: Text("s")),
-          FlatButton(
-              onPressed: null, child: Text("Sign Up"))
+          Image.asset("assets/icons/logo.jpg"),
+          formButton(
+              event: () {
+                Navigator.pushNamed(context, '/login');
+              },
+              text: "Login"),
+          formButton(
+              text: "Sign up",
+              event: () {
+                Navigator.pushNamed(context, '/signup');
+              })
         ],
       ),
     );
 
-    return Scaffold(
-      body: s
-    );
+    return Scaffold(body: s);
   }
 }
